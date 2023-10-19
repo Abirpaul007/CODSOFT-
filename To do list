@@ -1,0 +1,43 @@
+def main_menu():
+    print("\n TO-DO LIST ")
+    print("1.View Tasks")
+    print("2.Add Task")
+    print("3.Mark Task as Complete")
+    print("4.Delete Task")
+    print("5.Exit")
+def view_tasks(tasks):
+    print("\n Tasks ")
+    for index, task in enumerate(tasks):
+        print(f"{index+1}. {task}")
+def add_task(tasks):
+    task = input("Add new task: ")
+    tasks.append(task)
+    print("Task added successfully!")
+def complete_task(tasks):
+    index = int(input("Enter the serial no. of the task to mark as complete: "))
+    tasks[index-1] += " (Complete)"
+    print("Task marked as complete!")
+def delete_task(tasks):
+    index = int(input("Enter the serial no. of the task to delete: "))
+    del tasks[index-1]
+    print("Task deleted successfully!")
+def main():
+    tasks = []
+    while True:
+        main_menu()
+        choice = input("\nEnter your choice (1-5): ")
+        
+        if choice == '1':
+            view_tasks(tasks)
+        elif choice == '2':
+            add_task(tasks)
+        elif choice == '3':
+            complete_task(tasks)
+        elif choice == '4':
+            delete_task(tasks)
+        elif choice == '5':
+            print("Exiting the list...")
+            break
+        else:
+            print("Invalid choice. Please try again!")
+main()
